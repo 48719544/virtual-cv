@@ -32,18 +32,23 @@ themeToggleBtn.addEventListener('click', () => {
 });
 
 
-// --- INTERACTIVE SLIDESHOW CAROUSEL ---
+// --- INTERACTIVE & AUTOPLAY SLIDESHOW CAROUSEL ---
 let slideIndex = 1;
+let timer = null;
+
 showSlides(slideIndex);
+resetTimer(); // Start autoplay immediately on page load
 
 // Manual slider direction controls (+1 or -1)
 function plusSlides(n) {
     showSlides(slideIndex += n);
+    resetTimer(); // Reset the autoplay timer when user manually interacts
 }
 
 // Indicator bullet slide controls
 function currentSlide(n) {
     showSlides(slideIndex = n);
+    resetTimer(); // Reset the autoplay timer when user manually interacts
 }
 
 // Core rendering carousel function
@@ -73,4 +78,13 @@ function showSlides(n) {
     if (dots[slideIndex - 1]) {
         dots[slideIndex - 1].className += " active";
     }
+}
+
+// Autoplay Timer Logic (Transitions every 4 seconds)
+function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => {
+        slideIndex++;
+        showSlides(slideIndex);
+    }, 4000); // 4000ms = 4 seconds. Adjust this number to speed it up or slow it down.
 }
