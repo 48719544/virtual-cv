@@ -311,15 +311,16 @@ h2::after {
     margin-bottom: 0.4rem;
 }
 
-/* Slideshow Container Styling */
+/* Slideshow Container Styling - Upgraded Large Size */
 .slideshow-container {
-    max-width: 800px;
+    max-width: 950px;
     position: relative;
     margin: auto;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
     border: 2px solid var(--accent-color);
+    background-color: #000; /* Dark backdrop for vertical/contained images */
 }
 
 /* Hide images by default */
@@ -327,11 +328,13 @@ h2::after {
     display: none;
 }
 
-/* Image aspect ratio container setup */
+/* Large Slide Image Aspect Ratio & Size Rules */
 .mySlides img {
-    height: 480px;
-    object-fit: cover; /* Centers & crops images cleanly */
+    height: 580px;
+    width: 100%;
+    object-fit: cover; /* Default fallback - overridden by inline styles on specific images */
     display: block;
+    transition: all var(--transition-speed);
 }
 
 /* Carousel Buttons (Prev/Next) */
@@ -340,15 +343,15 @@ h2::after {
     position: absolute;
     top: 50%;
     width: auto;
-    margin-top: -22px;
-    padding: 16px;
+    margin-top: -30px;
+    padding: 20px;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     transition: 0.3s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 5;
 }
 
@@ -365,33 +368,35 @@ h2::after {
 /* Caption text background bar */
 .caption-text {
     color: #f2f2f2;
-    font-size: 15px;
-    padding: 12px 24px;
+    font-size: 16px;
+    padding: 14px 24px;
     position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.75);
     font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
 /* Slide Counter (e.g. 1 / 11) */
 .numbertext {
     color: #f2f2f2;
-    font-size: 12px;
-    padding: 8px 12px;
+    font-size: 13px;
+    padding: 10px 14px;
     position: absolute;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.6);
     z-index: 5;
+    border-radius: 0 0 8px 0;
 }
 
 /* Carousel Indicator Dots */
 .dot {
     cursor: pointer;
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
+    height: 14px;
+    width: 14px;
+    margin: 0 6px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
@@ -405,11 +410,11 @@ h2::after {
 /* Fade animation */
 .fade {
     animation-name: fade;
-    animation-duration: 1s;
+    animation-duration: 1.2s;
 }
 
 @keyframes fade {
-    from { opacity: .4 } 
+    from { opacity: .3 } 
     to { opacity: 1 }
 }
 
@@ -508,7 +513,7 @@ footer {
         font-size: 2.4rem;
     }
     .mySlides img {
-        height: 300px; /* Shortens slideshow container on mobile devices */
+        height: 350px; /* Keeps slideshow container well-proportioned on mobile devices */
     }
     .skills-container, .contact-grid {
         grid-template-columns: 1fr;
