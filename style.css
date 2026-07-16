@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #f39c12; /* Warm amber highlight */
-    --bg-color: #0f0f11;       /* Sleek Dark Mode default */
+    --primary-color: #f39c12; /* Golden/Amber Accent */
+    --bg-color: #0f0f11;       /* Sleek Dark Mode */
     --text-color: #e0e0e6;
     --card-bg: #1a1a1f;
     --accent-color: #2a2a35;
@@ -22,6 +22,7 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: var(--bg-color);
 }
 
 body {
@@ -29,10 +30,11 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.7;
+    min-height: 100vh;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* Navbar */
+/* Navbar styles */
 .navbar {
     position: fixed;
     top: 0;
@@ -75,7 +77,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Hero Section */
+/* Hero Frame & Circular Profile Image */
 .hero {
     height: 100vh;
     display: flex;
@@ -83,20 +85,38 @@ body {
     align-items: center;
     text-align: center;
     padding: 0 1.5rem;
-    background: radial-gradient(circle at top right, rgba(243, 156, 18, 0.1), transparent);
+    background: radial-gradient(circle at top right, rgba(243, 156, 18, 0.12), transparent);
+}
+
+.hero-image-container {
+    margin-bottom: 1.5rem;
+}
+
+.profile-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 8px 24px rgba(243, 156, 18, 0.25);
+    transition: transform 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
 }
 
 .hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
+    font-size: 3.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .highlight {
     color: var(--primary-color);
 }
 
-.hero-content p {
-    font-size: 1.25rem;
+.hero-subtitle {
+    font-size: 1.3rem;
     margin-bottom: 2rem;
     opacity: 0.9;
 }
@@ -132,7 +152,7 @@ body {
     transform: translateY(-3px);
 }
 
-/* Sections */
+/* Base Sections */
 .section {
     max-width: 1100px;
     margin: 0 auto;
@@ -145,7 +165,7 @@ body {
 
 h2 {
     font-size: 2.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     position: relative;
 }
 
@@ -158,7 +178,18 @@ h2::after {
     margin-top: 0.5rem;
 }
 
-/* Timeline/Experience Custom CSS */
+.about-content p {
+    font-size: 1.15rem;
+    margin-bottom: 1.2rem;
+}
+
+.location-tag {
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-top: 1.5rem;
+}
+
+/* Timeline Custom Experience UI */
 .timeline {
     border-left: 3px solid var(--accent-color);
     padding-left: 20px;
@@ -188,9 +219,25 @@ h2::after {
 .timeline-panel h3 {
     font-size: 1.4rem;
     color: var(--primary-color);
+    margin-bottom: 0.2rem;
 }
 
-/* Project Cards Grid */
+.timeline-panel h4 {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.resume-bullets {
+    list-style-type: square;
+    margin-left: 1.5rem;
+}
+
+.resume-bullets li {
+    margin-bottom: 0.5rem;
+}
+
+/* Hackathon Cards Grid */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -200,43 +247,181 @@ h2::after {
 .project-card {
     background: var(--card-bg);
     border: 1px solid var(--accent-color);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+.prize-card {
+    border-top: 4px solid var(--primary-color);
 }
 
 .project-icon {
-    font-size: 2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+}
+
+.award-place {
+    font-weight: bold;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
-.project-tags {
-    margin-top: 1.5rem;
+/* Student Governance Section */
+.leadership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
-.project-tags span {
-    background: var(--accent-color);
-    padding: 0.3rem 0.8rem;
+.leadership-card {
+    background: var(--bg-color);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.8rem;
+    border-radius: 8px;
+}
+
+.leadership-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-date {
     font-size: 0.8rem;
-    border-radius: 15px;
-    margin-right: 0.5rem;
+    background: var(--accent-color);
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+}
+
+.leadership-card ul {
+    list-style-type: circle;
+    margin-left: 1.2rem;
+}
+
+.leadership-card li {
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+/* Slideshow Container Styling */
+.slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--accent-color);
+}
+
+/* Hide images by default */
+.mySlides {
+    display: none;
+}
+
+/* Image aspect ratio container setup */
+.mySlides img {
+    height: 480px;
+    object-fit: cover; /* Centers & crops images cleanly */
+    display: block;
+}
+
+/* Carousel Buttons (Prev/Next) */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.3s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 5;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--primary-color);
+    color: #121212;
+}
+
+/* Caption text background bar */
+.caption-text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 12px 24px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+
+/* Slide Counter (e.g. 1 / 11) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 5;
+}
+
+/* Carousel Indicator Dots */
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: var(--primary-color);
+}
+
+/* Fade animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+
+@keyframes fade {
+    from { opacity: .4 } 
+    to { opacity: 1 }
 }
 
 /* Skills Badges */
 .skills-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .skills-category h3 {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--primary-color);
 }
 
@@ -247,10 +432,53 @@ h2::after {
 }
 
 .skill-badge {
-    background: var(--accent-color);
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: 500;
+    background: var(--card-bg);
+    border: 1px solid var(--accent-color);
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Contact & References Grid */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info h3, .references-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.2s;
+}
+
+.contact-info a:hover {
+    color: var(--primary-color);
+}
+
+.ref-quote {
+    background: var(--bg-color);
+    border-left: 3px solid var(--primary-color);
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.ref-contact {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    display: block;
+    margin-top: 0.5rem;
 }
 
 /* Theme Toggle Button */
@@ -271,15 +499,18 @@ footer {
     opacity: 0.8;
 }
 
-/* Responsiveness */
+/* Responsive Overrides */
 @media (max-width: 768px) {
     .nav-links {
         display: none;
     }
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 2.4rem;
     }
-    .skills-container {
+    .mySlides img {
+        height: 300px; /* Shortens slideshow container on mobile devices */
+    }
+    .skills-container, .contact-grid {
         grid-template-columns: 1fr;
     }
 }
