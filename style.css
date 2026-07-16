@@ -183,12 +183,15 @@ h2::after {
     margin-bottom: 1.2rem;
 }
 
-.location-tag {
-    color: var(--primary-color);
-    font-weight: bold;
-    margin-top: 1.5rem;
+.location-tag a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity var(--transition-speed);
 }
 
+.location-tag a:hover {
+    opacity: 0.85;
+}
 /* Timeline Custom Experience UI */
 .timeline {
     border-left: 3px solid var(--accent-color);
